@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,6 +14,7 @@
             --light-grey: #3a3a3a;
             --white: #f5f5f5;
             --accent: #e0e0e0;
+            --whatsapp-green: #25D366;
         }
         
         * {
@@ -103,6 +104,78 @@
         .btn-outline:hover {
             background-color: var(--white);
             color: var(--black);
+        }
+        
+        /* WhatsApp Button Styles */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            background-color: var(--whatsapp-green);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+        
+        .whatsapp-btn i {
+            font-size: 24px;
+            margin-right: 8px;
+        }
+        
+        .whatsapp-btn span {
+            font-size: 16px;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        /* WhatsApp Contact Option */
+        .whatsapp-contact {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: rgba(37, 211, 102, 0.1);
+            border-radius: 8px;
+            border-left: 4px solid var(--whatsapp-green);
+        }
+        
+        .whatsapp-contact i {
+            color: var(--whatsapp-green);
+            font-size: 20px;
+            margin-right: 10px;
+        }
+        
+        .whatsapp-contact a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .whatsapp-contact a:hover {
+            text-decoration: underline;
         }
         
         /* Header & Navigation */
@@ -575,6 +648,14 @@
             h2 {
                 font-size: 2rem;
             }
+            
+            .whatsapp-btn span {
+                display: none;
+            }
+            
+            .whatsapp-btn {
+                padding: 15px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -601,6 +682,13 @@
     </style>
 </head>
 <body>
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/27826956689?text=Hi%20Food%20Studio!%20I%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20menu%20and%20services." 
+       class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>Chat with us</span>
+    </a>
+
     <!-- Header -->
     <header>
         <div class="container header-container">
@@ -762,6 +850,13 @@
                             <i class="fas fa-map-marker-alt"></i>
                             <p>6 Esselen str, Potchefstroom 2520</p>
                         </div>
+                        <!-- WhatsApp Contact Option -->
+                        <div class="whatsapp-contact">
+                            <i class="fab fa-whatsapp"></i>
+                            <a href="https://wa.me/27826956689?text=Hi%20Food%20Studio!%20I%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20menu%20and%20services." target="_blank">
+                                Message us on WhatsApp
+                            </a>
+                        </div>
                     </div>
                     <div class="hours">
                         <h3>Trading Hours</h3>
@@ -772,24 +867,24 @@
                 </div>
                 <div class="contact-form">
                     <h3>Send us a Message</h3>
-                    <form id="contactForm" action="mail.php" method="post">
+                    <form id="contactForm">
                         <div class="form-group">
                             <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
+                            <input type="text" id="name" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Your Email</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
+                            <input type="email" id="email" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" class="form-control" required>
+                            <input type="text" id="subject" class="form-control" required>
                         </div>
                         <div class="form-group">
                             <label for="message">Your Message</label>
-                            <textarea id="message" name="message" class="form-control"  required></textarea>
+                            <textarea id="message" class="form-control" required></textarea>
                         </div>
-                        <button type="submit" name="send" class="btn">Send Message</button>
+                        <button type="submit" class="btn">Send Message</button>
                     </form>
                 </div>
             </div>
@@ -806,7 +901,9 @@
                     <div class="social-links">
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/27826956689?text=Hi%20Food%20Studio!%20I%20visited%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20menu%20and%20services." target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="footer-column">
@@ -825,6 +922,7 @@
                         <li><i class="fas fa-map-marker-alt"></i> 6 Esselen str, Potchefstroom</li>
                         <li><i class="fas fa-phone"></i> 082 695 6689</li>
                         <li><i class="fas fa-envelope"></i> eliza.elsa@gmail.com</li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/27826956689" target="_blank">WhatsApp us</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -888,6 +986,24 @@
             });
         });
         
+        // Contact form submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real implementation, you would send this data to a server
+            // For this example, we'll just show an alert
+            alert(`Thank you for your message, ${name}! We'll get back to you soon.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
     </script>
 </body>
 </html>
